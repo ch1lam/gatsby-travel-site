@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:33:00
- * @LastEditTime : 2022-03-27 23:47:22
+ * @LastEditTime : 2022-03-28 19:21:40
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\header.tsx
  */
@@ -11,6 +11,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import { menuData } from "../data/MenuData";
+import { Button } from "./Button";
 
 const Header = () => {
   return (
@@ -24,6 +25,11 @@ const Header = () => {
           </NavLink>
         ))}
       </NavMenu>
+      <NavBtn>
+        <Button to="/trips" primary round>
+          Book a Flight
+        </Button>
+      </NavBtn>
     </Nav>
   );
 };
@@ -31,7 +37,7 @@ const Header = () => {
 export default Header;
 
 const Nav = styled.nav`
-  background: red;
+  background: transparent;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -69,6 +75,16 @@ const NavMenu = styled.div`
   display: flex;
   align-items: center;
   margin-right: -48px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
 
   @media screen and (max-width: 768px) {
     display: none;
