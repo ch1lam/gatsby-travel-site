@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-03-28 19:21:21
+ * @LastEditTime : 2022-03-30 14:26:47
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\hero.tsx
  */
@@ -42,6 +42,22 @@ const HeroContainer = styled.div`
   position: relative;
   margin-top: -80px;
   color: #fff;
+
+  ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      ),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+  }
 `;
 
 const HeroBg = styled.div`
