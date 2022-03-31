@@ -1,0 +1,26 @@
+[
+  {
+    "img": "../assets/images/travel-1.jpg",
+    "alt": "Tian Tan Buddha",
+    "name": "Tian Tan Buddha",
+    "button": "View Destination"
+  },
+  {
+    "img": "../assets/images/travel-1.jpg",
+    "alt": "Ad Deir",
+    "name": "Ad Deir",
+    "button": "View Destination"
+  },
+  {
+    "img": "../assets/images/travel-1.jpg",
+    "alt": "Humayun Tomb",
+    "name": "Humayun Tomb",
+    "button": "View Destination"
+  },
+  {
+    "img": "../assets/images/travel-1.jpg",
+    "alt": "Dumhinda Falls",
+    "name": "Dumhinda Falls",
+    "button": "View Destination"
+  }
+]
