@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-03-30 14:26:47
+ * @LastEditTime : 2022-03-30 14:29:05
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\hero.tsx
  */
@@ -109,4 +109,5 @@ const HeroH1 = styled.h1`
 const HeroP = styled.p`
   font-size: clamp(1rem, 3vw, 3rem);
   margin-bottom: 2rem;
+  font-weight: 400;
 `;
