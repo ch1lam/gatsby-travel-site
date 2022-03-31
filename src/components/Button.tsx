@@ -2,17 +2,18 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-28 14:43:55
- * @LastEditTime : 2022-03-28 15:36:38
+ * @LastEditTime : 2022-03-31 18:43:55
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Button.tsx
  */
-import styled from "styled-components";
+import styled, { CSSProp } from "styled-components";
 import { Link } from "gatsby";
 
 interface Props {
   primary?: boolean;
   big?: boolean;
   round?: boolean;
+  css?: CSSProp;
 }
 
 export const Button = styled(Link)<Props>`
