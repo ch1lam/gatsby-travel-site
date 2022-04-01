@@ -10,12 +10,14 @@ import React from "react";
 import Hero from "../components/Hero";
 import Layout from "../components/layout";
 import Trips from "../components/Trips";
+import Testimonials from "../components/Testimonials";
 
 const IndexPage = () => {
   return (
     <Layout>
       <Hero />
       <Trips heading="Our Favorite Destinations" />
+      <Testimonials />
     </Layout>
   );
 };
