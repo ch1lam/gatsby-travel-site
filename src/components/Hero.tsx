@@ -2,9 +2,9 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-03-30 14:29:05
+ * @LastEditTime : 2022-04-02 21:36:30
  * @LastEditors  : chilam
- * @FilePath     : \gatsby-travel-site\src\components\hero.tsx
+ * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
 import React from "react";
 import styled from "styled-components";
@@ -21,9 +21,13 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroItems>
-          <HeroH1>Unreal Destinations</HeroH1>
-          <HeroP>Out of the world</HeroP>
-          <Button>Travel Now</Button>
+          <HeroH1 className="animate__animated animate__fadeInUp">
+            Unreal Destinations
+          </HeroH1>
+          <HeroP className="animate__animated animate__fadeInUp animate__delay-0.5s">
+            Out of the world
+          </HeroP>
+          <Button to="/">Travel Now</Button>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
