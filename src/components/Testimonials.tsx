@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-31 19:55:36
- * @LastEditTime : 2022-04-01 17:43:25
+ * @LastEditTime : 2022-04-02 21:18:11
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Testimonials.tsx
  */
@@ -72,7 +72,7 @@ const Testimonials = () => {
         </ColumnOne>
         <ColumnTwo>
           {data.allFile.nodes.map((item: any, key: any) => {
-            return <Images image={getImage(item)!} alt="guy" />;
+            return <Images image={getImage(item)!} alt="guy" key={key} />;
           })}
         </ColumnTwo>
       </ContentWrapper>
