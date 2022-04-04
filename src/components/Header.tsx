@@ -2,9 +2,9 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:33:00
- * @LastEditTime : 2022-03-28 19:21:40
+ * @LastEditTime : 2022-04-02 21:29:46
  * @LastEditors  : chilam
- * @FilePath     : \gatsby-travel-site\src\components\header.tsx
+ * @FilePath     : \gatsby-travel-site\src\components\Header.tsx
  */
 import React from "react";
 import { Link } from "gatsby";
