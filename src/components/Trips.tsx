@@ -2,16 +2,18 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-30 14:30:32
- * @LastEditTime : 2022-03-31 23:19:04
+ * @LastEditTime : 2022-04-05 18:19:21
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Trips.tsx
  */
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Button } from "./Button";
 import { ImLocation } from "react-icons/im";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface Props {
   heading: string;
@@ -35,12 +37,36 @@ const Trips = ({ heading }: Props) => {
       }
     }
   `);
+
+  const [ref, inView, entry] = useInView({
+    threshold: 0.2,
+  });
+
+  const variants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, y: -100 },
+  };
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   const getTrips = (data: any) => {
     const tripsArray: JSX.Element[] = [];
     data.allTripsJson.edges.forEach((item: any, index: number) => {
       const image = getImage(item.node.img)!;
       tripsArray.push(
-        <ProductCard key={index}>
+        <ProductCard
+          key={index}
+          ref={ref}
+          animate={controls}
+          initial="hidden"
+          variants={variants}
+        >
           <ProductImg image={image} alt={item.node.alt} />
           <ProductInfo>
             <TextWrap>
@@ -49,8 +75,8 @@ const Trips = ({ heading }: Props) => {
             </TextWrap>
             <Button
               to="/trips"
-              primary
-              round
+              primary={true}
+              round={true}
               css={`
                 position: absolute;
                 top: 420px;
@@ -105,7 +131,7 @@ const ProductWrapper = styled.div`
   }
 `;
 
-const ProductCard = styled.div`
+const ProductCard = styled(motion.div)`
   line-height: 2;
   width: 100%;
   height: 500px;

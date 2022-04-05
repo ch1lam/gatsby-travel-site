@@ -2,16 +2,38 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-04-02 21:36:30
+ * @LastEditTime : 2022-04-05 18:36:23
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
 import Video from "../assets/videos/travel.mp4";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
+  const [ref, inView, entry] = useInView({
+    threshold: 0.2,
+  });
+
+  const titleVariants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, y: 100 },
+  };
+  const subtitleVariants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.6 } },
+    hidden: { opacity: 0, y: 100 },
+  };
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   return (
     <HeroContainer>
       <HeroBg>
@@ -21,10 +43,20 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroItems>
-          <HeroH1 className="animate__animated animate__fadeInUp">
+          <HeroH1
+            ref={ref}
+            animate={controls}
+            initial="hidden"
+            variants={titleVariants}
+          >
             Unreal Destinations
           </HeroH1>
-          <HeroP className="animate__animated animate__fadeInUp animate__delay-0.5s">
+          <HeroP
+            ref={ref}
+            animate={controls}
+            initial="hidden"
+            variants={subtitleVariants}
+          >
             Out of the world
           </HeroP>
           <Button to="/" primary={true} round={true}>
@@ -105,14 +137,14 @@ const HeroItems = styled.div`
   font-weight: bold;
 `;
 
-const HeroH1 = styled.h1`
+const HeroH1 = styled(motion.h1)`
   font-size: clamp(1.5rem, 6vw, 4rem);
   margin-bottom: 1.5rem;
   letter-spacing: 3px;
   padding: 0 1rem;
 `;
 
-const HeroP = styled.p`
+const HeroP = styled(motion.p)`
   font-size: clamp(1rem, 3vw, 3rem);
   margin-bottom: 2rem;
   font-weight: 400;
