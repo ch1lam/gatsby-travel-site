@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:33:00
- * @LastEditTime : 2022-04-02 21:29:46
+ * @LastEditTime : 2022-04-05 17:39:18
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Header.tsx
  */
@@ -26,7 +26,7 @@ const Header = () => {
         ))}
       </NavMenu>
       <NavBtn>
-        <Button to="/trips" primary round>
+        <Button to="/trips" primary={true} round={true}>
           Book a Flight
         </Button>
       </NavBtn>

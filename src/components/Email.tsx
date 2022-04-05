@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:46:54
- * @LastEditTime : 2022-04-01 20:12:19
+ * @LastEditTime : 2022-04-05 17:39:20
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Email.tsx
  */
@@ -25,8 +25,8 @@ const Email = () => {
             <Button
               as="button"
               type="submit"
-              primary
-              round
+              primary={true}
+              round={true}
               css={`
                 height: 48px;
 

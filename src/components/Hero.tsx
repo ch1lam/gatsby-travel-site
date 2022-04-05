@@ -27,7 +27,9 @@ const Hero = () => {
           <HeroP className="animate__animated animate__fadeInUp animate__delay-0.5s">
             Out of the world
           </HeroP>
-          <Button to="/">Travel Now</Button>
+          <Button to="/" primary={true} round={true}>
+            Travel Now
+          </Button>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
