@@ -2,16 +2,18 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-31 19:55:36
- * @LastEditTime : 2022-04-02 21:18:11
+ * @LastEditTime : 2022-04-08 21:19:47
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Testimonials.tsx
  */
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { FaRegLightbulb } from "react-icons/fa";
 import { graphql, useStaticQuery } from "gatsby";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
@@ -32,13 +34,80 @@ const Testimonials = () => {
     }
   `);
 
+  const { ref, inView } = useInView({
+    threshold: 0.8,
+  });
+  const [ref2, inView2] = useInView({
+    threshold: 0.8,
+  });
+  const [ref3, inView3] = useInView({
+    threshold: 0.8,
+  });
+  const [ref4, inView4] = useInView({
+    threshold: 1,
+  });
+
+  const variants = {
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, x: -100 },
+  };
+  const variants2 = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, y: -100 },
+  };
+
+  const controls = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+  useEffect(() => {
+    if (inView2) {
+      controls2.start("visible");
+    }
+  }, [controls2, inView2]);
+  useEffect(() => {
+    if (inView3) {
+      controls3.start("visible");
+    }
+  }, [controls3, inView3]);
+  useEffect(() => {
+    if (inView4) {
+      controls4.start("visible");
+    }
+  }, [controls4, inView4]);
+
   return (
     <TestimonialsContainer>
-      <TopLine>Testimonials</TopLine>
-      <Description>What People are Saying</Description>
+      <TopLine
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={variants}
+      >
+        Testimonials
+      </TopLine>
+      <Description
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={variants}
+      >
+        What People are Saying
+      </Description>
       <ContentWrapper>
         <ColumnOne>
-          <Testimonial>
+          <Testimonial
+            ref={ref2}
+            animate={controls2}
+            initial="hidden"
+            variants={variants}
+          >
             <IoMdCheckmarkCircleOutline
               css={`
                 color: #3fffa8;
@@ -54,7 +123,12 @@ const Testimonials = () => {
               accommodation."
             </p>
           </Testimonial>
-          <Testimonial>
+          <Testimonial
+            ref={ref3}
+            animate={controls3}
+            initial="hidden"
+            variants={variants}
+          >
             <FaRegLightbulb
               css={`
                 color: #3fffa8;
@@ -70,7 +144,12 @@ const Testimonials = () => {
             </p>
           </Testimonial>
         </ColumnOne>
-        <ColumnTwo>
+        <ColumnTwo
+          ref={ref4}
+          animate={controls4}
+          initial="hidden"
+          variants={variants2}
+        >
           {data.allFile.nodes.map((item: any, key: any) => {
             return <Images image={getImage(item)!} alt="guy" key={key} />;
           })}
@@ -90,14 +169,14 @@ const TestimonialsContainer = styled.div`
   padding: 5rem calc((100vw - 1300px) / 2);
 `;
 
-const TopLine = styled.p`
+const TopLine = styled(motion.p)`
   color: #077bf1;
   font-size: 1rem;
   padding-left: 2rem;
   margin-bottom: 0.75rem;
 `;
 
-const Description = styled.p`
+const Description = styled(motion.p)`
   text-align: start;
   padding-left: 2rem;
   margin-bottom: 4rem;
@@ -120,7 +199,7 @@ const ColumnOne = styled.div`
   grid-template-rows: 1fr 1fr;
 `;
 
-const Testimonial = styled.div`
+const Testimonial = styled(motion.div)`
   padding-top: 1rem;
   padding-right: 2rem;
 
@@ -135,7 +214,7 @@ const Testimonial = styled.div`
   }
 `;
 
-const ColumnTwo = styled.div`
+const ColumnTwo = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 2rem;
