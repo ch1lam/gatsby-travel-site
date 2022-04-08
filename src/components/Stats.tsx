@@ -2,22 +2,47 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:10:00
- * @LastEditTime : 2022-04-01 18:39:31
+ * @LastEditTime : 2022-04-08 21:17:30
  * @LastEditors  : chilam
- * @FilePath     : \gatsby-travel-site\src\components\stats.tsx
+ * @FilePath     : \gatsby-travel-site\src\components\Stats.tsx
  */
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { StatsData } from "../data/StatsData";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Stats = () => {
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
+
+  const variants = {
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, x: -100 },
+  };
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   return (
     <StatsContainer>
       <Heading>Why Choose Us?</Heading>
       <Wrapper>
         {StatsData.map((item, index) => {
           return (
-            <StatsBox key={index}>
+            <StatsBox
+              key={index}
+              ref={ref}
+              animate={controls}
+              initial="hidden"
+              variants={variants}
+            >
               <Icon
                 css={`
                   color: ${item.color};
@@ -68,7 +93,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const StatsBox = styled.div`
+const StatsBox = styled(motion.div)`
   height: 100%;
   width: 100%;
   padding: 2rem;
