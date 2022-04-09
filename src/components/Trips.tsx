@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-30 14:30:32
- * @LastEditTime : 2022-04-05 18:19:21
+ * @LastEditTime : 2022-04-09 16:08:59
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Trips.tsx
  */
@@ -67,7 +67,7 @@ const Trips = ({ heading }: Props) => {
           initial="hidden"
           variants={variants}
         >
-          <ProductImg image={image} alt={item.node.alt} />
+          <ProductImg image={image} alt={item.node.name} />
           <ProductInfo>
             <TextWrap>
               <ImLocation />

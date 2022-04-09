@@ -1,26 +1,26 @@
 [
   {
-    "img": "../assets/images/travel-1.jpg",
-    "alt": "Tian Tan Buddha",
-    "name": "Tian Tan Buddha",
+    "img": "../assets/images/travel-bj.jpg",
+    "alt": "beijing",
+    "name": "beijing",
     "button": "View Destination"
   },
   {
-    "img": "../assets/images/travel-1.jpg",
-    "alt": "Ad Deir",
-    "name": "Ad Deir",
+    "img": "../assets/images/travel-sh.jpg",
+    "alt": "shanghai",
+    "name": "shanghai",
     "button": "View Destination"
   },
   {
-    "img": "../assets/images/travel-1.jpg",
-    "alt": "Humayun Tomb",
-    "name": "Humayun Tomb",
+    "img": "../assets/images/travel-gz.jpg",
+    "alt": "guangzhou",
+    "name": "guangzhou",
     "button": "View Destination"
   },
   {
-    "img": "../assets/images/travel-1.jpg",
-    "alt": "Dumhinda Falls",
-    "name": "Dumhinda Falls",
+    "img": "../assets/images/travel-sz.jpg",
+    "alt": "shenzhen",
+    "name": "shenzhen",
     "button": "View Destination"
   }
 ]
