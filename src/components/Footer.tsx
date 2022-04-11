@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 20:16:29
- * @LastEditTime : 2022-04-01 20:33:25
+ * @LastEditTime : 2022-04-12 00:32:57
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Footer.tsx
  */
@@ -49,7 +49,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled.div`
-  padding: 5rem calc((100vw - 1100px) / 2);
+  padding: 5rem calc((100vw - 1300px) / 2);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   color: #000;

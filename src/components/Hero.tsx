@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-04-11 18:55:25
+ * @LastEditTime : 2022-04-12 00:07:20
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
@@ -15,7 +15,8 @@ import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
   const [ref, inView, entry] = useInView({
-    threshold: 0.2,
+    threshold: 0,
+    triggerOnce: true,
   });
 
   const titleVariants = {

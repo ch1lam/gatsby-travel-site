@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-30 14:30:32
- * @LastEditTime : 2022-04-11 18:55:30
+ * @LastEditTime : 2022-04-12 00:57:37
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Trips.tsx
  */
@@ -38,8 +38,8 @@ const Trips = ({ heading }: Props) => {
     }
   `);
 
-  const [ref, inView, entry] = useInView({
-    threshold: 0.2,
+  const [ref, inView] = useInView({
+    triggerOnce: true,
   });
 
   const variants = {
@@ -58,16 +58,9 @@ const Trips = ({ heading }: Props) => {
   const getTrips = (data: any) => {
     const tripsArray: JSX.Element[] = [];
     data.allTripsJson.edges.forEach((item: any, index: number) => {
-      const image = getImage(item.node.img)!;
       tripsArray.push(
-        <ProductCard
-          key={index}
-          ref={ref}
-          animate={controls}
-          initial="hidden"
-          variants={variants}
-        >
-          <ProductImg image={image} alt={item.node.name} />
+        <ProductCard key={index}>
+          <ProductImg image={getImage(item.node.img)!} alt={item.node.name} />
           <ProductInfo>
             <TextWrap>
               <ImLocation />
@@ -95,7 +88,14 @@ const Trips = ({ heading }: Props) => {
   return (
     <ProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
-      <ProductWrapper>{getTrips(data)}</ProductWrapper>
+      <ProductWrapper
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={variants}
+      >
+        {getTrips(data)}
+      </ProductWrapper>
     </ProductsContainer>
   );
 };
@@ -115,7 +115,7 @@ const ProductsHeading = styled.div`
   color: #000;
 `;
 
-const ProductWrapper = styled.div`
+const ProductWrapper = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
@@ -131,7 +131,7 @@ const ProductWrapper = styled.div`
   }
 `;
 
-const ProductCard = styled(motion.div)`
+const ProductCard = styled.div`
   line-height: 2;
   width: 100%;
   height: 500px;

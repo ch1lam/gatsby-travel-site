@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:10:00
- * @LastEditTime : 2022-04-08 21:17:30
+ * @LastEditTime : 2022-04-12 00:09:34
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Stats.tsx
  */
@@ -14,7 +14,8 @@ import { useInView } from "react-intersection-observer";
 
 const Stats = () => {
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold: 0,
+    triggerOnce: true,
   });
 
   const variants = {

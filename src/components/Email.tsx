@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:46:54
- * @LastEditTime : 2022-04-11 18:54:40
+ * @LastEditTime : 2022-04-12 00:09:15
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Email.tsx
  */
@@ -15,7 +15,8 @@ import { useInView } from "react-intersection-observer";
 
 const Email = () => {
   const [ref, inView] = useInView({
-    threshold: 0.6,
+    threshold: 0,
+    triggerOnce: true,
   });
 
   const variants = {

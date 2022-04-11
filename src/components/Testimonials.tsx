@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-31 19:55:36
- * @LastEditTime : 2022-04-08 21:19:47
+ * @LastEditTime : 2022-04-12 00:52:59
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Testimonials.tsx
  */
@@ -35,16 +35,20 @@ const Testimonials = () => {
   `);
 
   const { ref, inView } = useInView({
-    threshold: 0.8,
+    threshold: 0,
+    triggerOnce: true,
   });
   const [ref2, inView2] = useInView({
-    threshold: 0.8,
+    threshold: 0,
+    triggerOnce: true,
   });
   const [ref3, inView3] = useInView({
-    threshold: 0.8,
+    threshold: 0,
+    triggerOnce: true,
   });
   const [ref4, inView4] = useInView({
-    threshold: 1,
+    threshold: 0,
+    triggerOnce: true,
   });
 
   const variants = {
@@ -62,25 +66,25 @@ const Testimonials = () => {
   const controls4 = useAnimation();
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+    if (inView4) {
+      controls4.start("visible");
     }
-  }, [controls, inView]);
-  useEffect(() => {
-    if (inView2) {
-      controls2.start("visible");
-    }
-  }, [controls2, inView2]);
+  }, [controls4, inView4]);
   useEffect(() => {
     if (inView3) {
       controls3.start("visible");
     }
   }, [controls3, inView3]);
   useEffect(() => {
-    if (inView4) {
-      controls4.start("visible");
+    if (inView2) {
+      controls2.start("visible");
     }
-  }, [controls4, inView4]);
+  }, [controls2, inView2]);
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
 
   return (
     <TestimonialsContainer>
