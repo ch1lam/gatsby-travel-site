@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-30 14:30:32
- * @LastEditTime : 2022-04-09 16:08:59
+ * @LastEditTime : 2022-04-11 18:55:30
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Trips.tsx
  */
@@ -75,8 +75,8 @@ const Trips = ({ heading }: Props) => {
             </TextWrap>
             <Button
               to="/trips"
-              primary={true}
-              round={true}
+              $primary
+              $round
               css={`
                 position: absolute;
                 top: 420px;

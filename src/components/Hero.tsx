@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-04-05 18:36:23
+ * @LastEditTime : 2022-04-11 18:55:25
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
@@ -59,7 +59,7 @@ const Hero = () => {
           >
             Out of the world
           </HeroP>
-          <Button to="/" primary={true} round={true}>
+          <Button to="/" $primary $round>
             Travel Now
           </Button>
         </HeroItems>
