@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@react-hook/media-query": "^1.1.1",
     "@types/styled-components": "^5.1.24",
     "babel-plugin-styled-components": "^2.0.6",
     "framer-motion": "^6.2.8",
