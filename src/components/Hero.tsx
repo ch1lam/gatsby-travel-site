@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-04-12 00:07:20
+ * @LastEditTime : 2022-04-12 17:10:31
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
@@ -14,7 +14,7 @@ import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
-  const [ref, inView, entry] = useInView({
+  const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: true,
   });
@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        <VideoBg autoPlay loop muted playsInline>
+        <VideoBg autoPlay loop muted playsInline preload="auto">
           <source src={Video} type="video/mp4" />
         </VideoBg>
       </HeroBg>
