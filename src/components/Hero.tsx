@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-04-12 17:10:31
+ * @LastEditTime : 2022-04-13 23:55:08
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        <VideoBg autoPlay loop muted playsInline preload="auto">
+        <VideoBg autoPlay loop muted playsInline>
           <source src={Video} type="video/mp4" />
         </VideoBg>
       </HeroBg>
