@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-31 19:55:36
- * @LastEditTime : 2022-04-12 00:52:59
+ * @LastEditTime : 2022-04-13 21:38:56
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Testimonials.tsx
  */
@@ -119,7 +119,7 @@ const Testimonials = () => {
                 margin-bottom: 1rem;
               `}
             />
-            <h3>Sean Michals</h3>
+            <h3>Sean Michael</h3>
             <p>
               {" "}
               "The greatest experience of my life! It was so much fun exploring

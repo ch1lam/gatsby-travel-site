@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 20:16:29
- * @LastEditTime : 2022-04-12 00:32:57
+ * @LastEditTime : 2022-04-13 21:34:23
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Footer.tsx
  */
@@ -28,8 +28,8 @@ const Footer = () => {
       </FooterLinksWrapper>
       <FooterLinksWrapper>
         <FooterLinkItems>
-          <FooterLinkTitle>Vieos</FooterLinkTitle>
-          <FooterLink to="/">Sumbit Video</FooterLink>
+          <FooterLinkTitle>Videos</FooterLinkTitle>
+          <FooterLink to="/">Submit Video</FooterLink>
           <FooterLink to="/">Ambassadors</FooterLink>
           <FooterLink to="/">Agency</FooterLink>
           <FooterLink to="/">Influencer</FooterLink>

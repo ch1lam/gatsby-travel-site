@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:46:54
- * @LastEditTime : 2022-04-12 00:09:15
+ * @LastEditTime : 2022-04-13 21:38:58
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Email.tsx
  */
@@ -58,7 +58,7 @@ const Email = () => {
           initial="hidden"
           variants={variants2}
         >
-          Sign up for your newsletter below to get $100off your first tripi
+          Sign up for your newsletter below to get $100off your first trip
         </motion.p>
         <form action="#">
           <FormWrap
