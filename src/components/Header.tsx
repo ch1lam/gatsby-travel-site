@@ -2,11 +2,11 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:33:00
- * @LastEditTime : 2022-04-11 18:55:20
+ * @LastEditTime : 2022-04-13 21:27:49
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Header.tsx
  */
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
@@ -14,17 +14,25 @@ import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
 
 const Header = () => {
+  const [extendNavbar, setExtendNavbar] = useState<boolean>();
+
   return (
     <Nav>
-      <NavLink to="/">EXPLORIX</NavLink>
-      <Bars />
-      <NavMenu>
+      <NavTitle>
+        <NavLink to="/">EXPLORIX</NavLink>
+      </NavTitle>
+      <NavMenu extendNavbar={extendNavbar}>
         {menuData.map((item, index) => (
           <NavLink to={item.link} key={index}>
             {item.title}
           </NavLink>
         ))}
       </NavMenu>
+      <Bars
+        onClick={() => {
+          setExtendNavbar((current) => !current);
+        }}
+      />
       <NavBtn>
         <Button to="/trips" $primary $round>
           Book a Flight
@@ -41,19 +49,30 @@ const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 100;
   position: relative;
 `;
 
-const NavLink = styled(Link)`
-  color: #fff;
+const NavTitle = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const NavLink = styled(Link)`
+  color: #fff;
   text-decoration: none;
   padding: 0 1rem;
-  height: 100%;
+  margin-left: 1rem;
   cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 2rem;
+    margin: 0;
+    text-align: center;
+  }
 `;
 
 const Bars = styled(FaBars)`
@@ -71,20 +90,29 @@ const Bars = styled(FaBars)`
   }
 `;
 
-const NavMenu = styled.div`
+const NavMenu = styled.div<{ extendNavbar?: boolean }>`
   display: flex;
   align-items: center;
-  margin-right: -48px;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    padding: 10rem 0;
+    display: ${(props) => (props.extendNavbar ? "flex" : "none")};
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 20%);
+    backdrop-filter: blur(1rem);
   }
 `;
 
 const NavBtn = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 24px;
+  padding: 24px;
 
   @media screen and (max-width: 768px) {
     display: none;
