@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-02-25 15:56:51
- * @LastEditTime : 2022-04-13 22:05:51
+ * @LastEditTime : 2022-04-14 16:20:14
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\README.md
 -->
@@ -15,7 +15,7 @@
 
 🚣 一个基于 gatsby + Typescript 搭建的旅游网站
 
-[Demo](https://gatsby-travel-site-rjekovufa-ch1lam.vercel.app/)
+[Demo](https://gatsby-travel-site-git-main-ch1lam.vercel.app/)
 
 ## 功能特性
 
