@@ -2,23 +2,17 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:48:35
- * @LastEditTime : 2022-04-13 23:55:08
+ * @LastEditTime : 2022-04-22 15:55:44
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Hero.tsx
  */
-import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 import styled from "styled-components";
-import { Button } from "./Button";
 import Video from "../assets/videos/travel.mp4";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { Button } from "./Button";
 
 const Hero = () => {
-  const [ref, inView] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   const titleVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
     hidden: { opacity: 0, y: 100 },
@@ -27,13 +21,6 @@ const Hero = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.6 } },
     hidden: { opacity: 0, y: 100 },
   };
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
 
   return (
     <HeroContainer>
@@ -45,17 +32,17 @@ const Hero = () => {
       <HeroContent>
         <HeroItems>
           <HeroH1
-            ref={ref}
-            animate={controls}
             initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={titleVariants}
           >
             Unreal Destinations
           </HeroH1>
           <HeroP
-            ref={ref}
-            animate={controls}
             initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={subtitleVariants}
           >
             Out of the world

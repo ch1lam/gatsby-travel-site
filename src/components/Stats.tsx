@@ -2,34 +2,20 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:10:00
- * @LastEditTime : 2022-04-12 00:09:34
+ * @LastEditTime : 2022-04-22 15:56:46
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Stats.tsx
  */
-import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 import styled from "styled-components";
 import { StatsData } from "../data/StatsData";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const Stats = () => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   const variants = {
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
     hidden: { opacity: 0, x: -100 },
   };
-
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
 
   return (
     <StatsContainer>
@@ -39,9 +25,9 @@ const Stats = () => {
           return (
             <StatsBox
               key={index}
-              ref={ref}
-              animate={controls}
               initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
               variants={variants}
             >
               <Icon

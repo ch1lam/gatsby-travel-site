@@ -2,18 +2,17 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-30 14:30:32
- * @LastEditTime : 2022-04-12 00:57:37
+ * @LastEditTime : 2022-04-22 15:55:29
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Trips.tsx
  */
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { useStaticQuery, graphql } from "gatsby";
+import { motion } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Button } from "./Button";
+import React from "react";
 import { ImLocation } from "react-icons/im";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import styled from "styled-components";
+import { Button } from "./Button";
 
 interface Props {
   heading: string;
@@ -38,28 +37,22 @@ const Trips = ({ heading }: Props) => {
     }
   `);
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-  });
-
   const variants = {
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
     hidden: { opacity: 0, y: -100 },
   };
 
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
   const getTrips = (data: any) => {
     const tripsArray: JSX.Element[] = [];
     data.allTripsJson.edges.forEach((item: any, index: number) => {
       tripsArray.push(
-        <ProductCard key={index}>
+        <ProductCard
+          key={index}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={variants}
+        >
           <ProductImg image={getImage(item.node.img)!} alt={item.node.name} />
           <ProductInfo>
             <TextWrap>
@@ -88,14 +81,7 @@ const Trips = ({ heading }: Props) => {
   return (
     <ProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
-      <ProductWrapper
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        variants={variants}
-      >
-        {getTrips(data)}
-      </ProductWrapper>
+      <ProductWrapper>{getTrips(data)}</ProductWrapper>
     </ProductsContainer>
   );
 };
@@ -115,7 +101,7 @@ const ProductsHeading = styled.div`
   color: #000;
 `;
 
-const ProductWrapper = styled(motion.div)`
+const ProductWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
@@ -131,7 +117,7 @@ const ProductWrapper = styled(motion.div)`
   }
 `;
 
-const ProductCard = styled.div`
+const ProductCard = styled(motion.div)`
   line-height: 2;
   width: 100%;
   height: 500px;

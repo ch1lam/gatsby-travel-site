@@ -2,18 +2,17 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-31 19:55:36
- * @LastEditTime : 2022-04-13 21:38:56
+ * @LastEditTime : 2022-04-22 15:54:43
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Testimonials.tsx
  */
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { FaRegLightbulb } from "react-icons/fa";
+import { motion } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import React from "react";
+import { FaRegLightbulb } from "react-icons/fa";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import styled from "styled-components";
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
@@ -34,23 +33,6 @@ const Testimonials = () => {
     }
   `);
 
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const [ref2, inView2] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const [ref3, inView3] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const [ref4, inView4] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   const variants = {
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
     hidden: { opacity: 0, x: -100 },
@@ -60,46 +42,20 @@ const Testimonials = () => {
     hidden: { opacity: 0, y: -100 },
   };
 
-  const controls = useAnimation();
-  const controls2 = useAnimation();
-  const controls3 = useAnimation();
-  const controls4 = useAnimation();
-
-  useEffect(() => {
-    if (inView4) {
-      controls4.start("visible");
-    }
-  }, [controls4, inView4]);
-  useEffect(() => {
-    if (inView3) {
-      controls3.start("visible");
-    }
-  }, [controls3, inView3]);
-  useEffect(() => {
-    if (inView2) {
-      controls2.start("visible");
-    }
-  }, [controls2, inView2]);
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
   return (
     <TestimonialsContainer>
       <TopLine
-        ref={ref}
-        animate={controls}
         initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
         variants={variants}
       >
         Testimonials
       </TopLine>
       <Description
-        ref={ref}
-        animate={controls}
         initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
         variants={variants}
       >
         What People are Saying
@@ -107,9 +63,9 @@ const Testimonials = () => {
       <ContentWrapper>
         <ColumnOne>
           <Testimonial
-            ref={ref2}
-            animate={controls2}
             initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
             variants={variants}
           >
             <IoMdCheckmarkCircleOutline
@@ -128,9 +84,9 @@ const Testimonials = () => {
             </p>
           </Testimonial>
           <Testimonial
-            ref={ref3}
-            animate={controls3}
             initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
             variants={variants}
           >
             <FaRegLightbulb
@@ -149,9 +105,9 @@ const Testimonials = () => {
           </Testimonial>
         </ColumnOne>
         <ColumnTwo
-          ref={ref4}
-          animate={controls4}
           initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
           variants={variants2}
         >
           {data.allFile.nodes.map((item: any, key: any) => {

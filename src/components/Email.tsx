@@ -2,23 +2,17 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-04-01 18:46:54
- * @LastEditTime : 2022-04-13 21:38:58
+ * @LastEditTime : 2022-04-22 15:58:07
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Email.tsx
  */
-import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 import styled from "styled-components";
 import EmailBg from "../assets/images/email.jpg";
 import { Button } from "./Button";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const Email = () => {
-  const [ref, inView] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   const variants = {
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
     hidden: { opacity: 0, y: -100 },
@@ -33,38 +27,30 @@ const Email = () => {
     hidden: { opacity: 0, y: 100 },
   };
 
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
   return (
     <EmailContainer>
       <EmailContent>
         <motion.h1
-          ref={ref}
-          animate={controls}
           initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
           variants={variants}
         >
           Get Access to Exclusive Offers
         </motion.h1>
         <motion.p
-          ref={ref}
-          animate={controls}
           initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
           variants={variants2}
         >
           Sign up for your newsletter below to get $100off your first trip
         </motion.p>
         <form action="#">
           <FormWrap
-            ref={ref}
-            animate={controls}
             initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
             variants={variants3}
           >
             <label htmlFor="email">
