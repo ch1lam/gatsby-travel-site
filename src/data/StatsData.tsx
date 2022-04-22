@@ -7,9 +7,9 @@
  * @FilePath     : \gatsby-travel-site\src\data\StatsData.tsx
  */
 import React from "react";
+import { FaMoneyCheck } from "react-icons/fa";
 import { GiEarthAmerica } from "react-icons/gi";
 import { MdAirplanemodeActive, MdTimer } from "react-icons/md";
-import { FaMoneyCheck } from "react-icons/fa";
 
 export const StatsData = [
   {

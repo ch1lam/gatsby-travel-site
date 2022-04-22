@@ -6,8 +6,8 @@
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Button.tsx
  */
-import styled from "styled-components";
 import { Link } from "gatsby";
+import styled from "styled-components";
 
 interface Props {
   $primary?: boolean;

@@ -2,14 +2,14 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:33:00
- * @LastEditTime : 2022-04-13 21:27:49
+ * @LastEditTime : 2022-04-22 15:58:19
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Header.tsx
  */
-import React, { useState } from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import styled from "styled-components";
 import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
 
