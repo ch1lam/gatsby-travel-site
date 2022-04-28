@@ -2,13 +2,13 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-27 22:33:00
- * @LastEditTime : 2022-04-22 15:58:19
+ * @LastEditTime : 2022-04-29 00:10:08
  * @LastEditors  : chilam
  * @FilePath     : \gatsby-travel-site\src\components\Header.tsx
  */
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaWindowClose } from "react-icons/fa";
 import styled from "styled-components";
 import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
@@ -28,11 +28,13 @@ const Header = () => {
           </NavLink>
         ))}
       </NavMenu>
-      <Bars
+      <ToggleBtn
         onClick={() => {
           setExtendNavbar((current) => !current);
         }}
-      />
+      >
+        {extendNavbar ? <FaWindowClose /> : <FaBars />}
+      </ToggleBtn>
       <NavBtn>
         <Button to="/trips" $primary $round>
           Book a Flight
@@ -75,7 +77,7 @@ const NavLink = styled(Link)`
   }
 `;
 
-const Bars = styled(FaBars)`
+const ToggleBtn = styled.div`
   display: none;
   color: #fff;
 
